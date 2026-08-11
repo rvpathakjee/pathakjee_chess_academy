@@ -1,603 +1,246 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pathakjee Chess Academy — Vadodara</title>
-<meta name="description" content="Pathakjee Chess Academy — a newly started chess coaching space in Vadodara, Gujarat, run personally by its founder.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♞</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ivory:#EDE6D6;
-    --cream:#F7F3EA;
-    --walnut:#241811;
-    --walnut-light:#3C2A1B;
-    --felt:#1F4D3D;
-    --felt-light:#2E6B54;
-    --brass:#B08D57;
-    --brass-light:#CBA872;
-    --ink-soft:#5A4A3A;
-    --max-w:1180px;
-    --radius:4px;
-  }
-
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:'Work Sans', sans-serif;
-    background:var(--cream);
-    color:var(--walnut);
-    line-height:1.6;
-    overflow-x:hidden;
-  }
-  img{max-width:100%; display:block;}
-  a{color:inherit;}
-  .wrap{max-width:var(--max-w); margin:0 auto; padding:0 24px;}
-
-  h1,h2,h3{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    line-height:1.15;
-    letter-spacing:-0.01em;
-  }
-
-  .eyebrow{
-    font-family:'Space Mono', monospace;
-    font-size:0.78rem;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--brass);
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    margin-bottom:14px;
-  }
-  .eyebrow::before{
-    content:"";
-    width:20px; height:1px;
-    background:var(--brass);
-    display:inline-block;
-  }
-
-  /* ---------- Header ---------- */
-  header{
-    position:sticky; top:0; z-index:100;
-    background:rgba(247,243,234,0.92);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid rgba(36,24,17,0.08);
-  }
-  .nav{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:16px 24px;
-    max-width:var(--max-w); margin:0 auto;
-  }
-  .logo{
-    display:flex; align-items:center; gap:10px;
-    font-family:'Fraunces', serif;
-    font-weight:600; font-size:1.15rem;
-    text-decoration:none; color:var(--walnut);
-  }
-  .logo-mark{
-    width:34px; height:34px; border-radius:50%;
-    background:var(--felt);
-    color:var(--ivory);
-    display:flex; align-items:center; justify-content:center;
-    font-size:1.15rem;
-  }
-  .logo small{
-    display:block; font-family:'Space Mono', monospace;
-    font-size:0.6rem; letter-spacing:0.1em; color:var(--ink-soft);
-    font-weight:400; text-transform:uppercase;
-  }
-  nav.links{
-    display:flex; align-items:center; gap:32px;
-    list-style:none;
-  }
-  nav.links a{
-    text-decoration:none; font-size:0.92rem; color:var(--walnut-light);
-    font-weight:500;
-    position:relative;
-  }
-  nav.links a::after{
-    content:""; position:absolute; left:0; bottom:-4px;
-    width:0; height:1px; background:var(--brass);
-    transition:width 0.25s ease;
-  }
-  nav.links a:hover::after{width:100%;}
-
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    padding:12px 22px;
-    border-radius:var(--radius);
-    font-weight:600; font-size:0.9rem;
-    text-decoration:none;
-    border:1px solid transparent;
-    cursor:pointer;
-    transition:transform 0.2s ease, background 0.2s ease, color 0.2s ease;
-  }
-  .btn-primary{ background:var(--brass); color:var(--walnut); }
-  .btn-primary:hover{ background:var(--brass-light); transform:translateY(-1px); }
-  .btn-outline{ border-color:var(--walnut); color:var(--walnut); }
-  .btn-outline:hover{ background:var(--walnut); color:var(--ivory); }
-  .btn-ghost-light{ border-color:rgba(237,230,214,0.4); color:var(--ivory); }
-  .btn-ghost-light:hover{ background:rgba(237,230,214,0.12); }
-
-  .nav-cta{display:flex; align-items:center; gap:14px;}
-  .hamburger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
-  .hamburger span{width:22px; height:2px; background:var(--walnut);}
-
-  /* ---------- Hero ---------- */
-  .hero{
-    background:var(--walnut);
-    color:var(--ivory);
-    position:relative;
-    overflow:hidden;
-  }
-  .hero::before{
-    content:"";
-    position:absolute; inset:0;
-    background:
-      radial-gradient(ellipse at 15% 20%, rgba(31,77,61,0.55), transparent 55%),
-      radial-gradient(ellipse at 85% 80%, rgba(176,141,87,0.18), transparent 50%);
-    pointer-events:none;
-  }
-  .hero-inner{
-    max-width:var(--max-w); margin:0 auto; padding:100px 24px 90px;
-    display:grid; grid-template-columns:1.05fr 0.95fr; gap:60px;
-    align-items:center;
-    position:relative; z-index:1;
-  }
-  .hero h1{
-    font-size:clamp(2.4rem, 4.4vw, 3.6rem);
-    color:var(--ivory);
-    margin-bottom:22px;
-  }
-  .hero h1 em{
-    font-style:italic; color:var(--brass-light);
-  }
-  .hero p.lede{
-    font-size:1.08rem; color:rgba(237,230,214,0.78);
-    max-width:48ch; margin-bottom:34px;
-  }
-  .hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
-
-  /* Chessboard illustration */
-  .board-frame{
-    background:var(--walnut-light);
-    padding:14px;
-    border-radius:6px;
-    box-shadow:0 30px 60px -20px rgba(0,0,0,0.55);
-    border:1px solid rgba(176,141,87,0.25);
-  }
-  .board{
-    display:grid;
-    grid-template-columns:repeat(8, 1fr);
-    grid-template-rows:repeat(8, 1fr);
-    aspect-ratio:1/1;
-    border-radius:2px;
-    overflow:hidden;
-  }
-  .sq{
-    display:flex; align-items:center; justify-content:center;
-    /* Piece glyph size — 1.5x the original scale, still fluid with viewport width */
-    font-size:clamp(1.65rem, 3.9vw, 2.85rem);
-    line-height:1;
-    opacity:0; transform:scale(0.6);
-    animation:pop 0.5s ease forwards;
-  }
-  .sq.light{ background:#888A6F; }
-  .sq.dark{ background:var(--felt); }
-  .sq .piece-w,
-  .sq .piece-b{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    line-height:1;
-  }
-  /* White pieces: fill with a dark outline so they stay
-     visible against the light (ivory) squares, not just the dark ones */
-  .sq .piece-w{
-    color:#FFFFFF;
-    -webkit-text-stroke:3px #000000;
-    paint-order:stroke fill;
-    text-shadow:0 1px 3.5px rgba(0,0,0,30);
-  }
-  .sq .piece-b{ color:#1a120c;
-   -webkit-text-stroke:2px #404040;
-    paint-order:stroke fill;
-   text-shadow:0 1px 3.5px rgba(255,255,255,30); }
-  @keyframes pop{ to{ opacity:1; transform:scale(1); } }
-  .board-caption{
-    text-align:center; padding-top:14px;
-    font-family:'Space Mono', monospace; font-size:0.72rem;
-    color:rgba(237,230,214,0.55); letter-spacing:0.05em;
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    .sq{animation:none; opacity:1; transform:none;}
-    html{scroll-behavior:auto;}
-  }
-
-  /* ---------- Sections generic ---------- */
-  section{ padding:96px 0; }
-  .section-head{ max-width:640px; margin-bottom:56px; }
-  .section-head h2{ font-size:clamp(1.8rem, 3vw, 2.4rem); }
-  .section-head p{ color:var(--ink-soft); margin-top:14px; font-size:1.02rem; }
-
-  /* ---------- About ---------- */
-  .about{
-    display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; align-items:start;
-  }
-  .pull-quote{
-    background:var(--felt); color:var(--ivory);
-    border-radius:6px; padding:44px 34px;
-    position:relative; overflow:hidden;
-    display:flex; flex-direction:column; justify-content:center;
-    min-height:260px;
-  }
-  .pull-quote::after{
-    content:"♞"; position:absolute; right:-10px; bottom:-30px;
-    font-size:9rem; opacity:0.08; font-family:serif;
-  }
-  .pull-quote p{
-    font-family:'Fraunces', serif; font-size:1.5rem; font-style:italic;
-    line-height:1.35; position:relative; z-index:1;
-  }
-  .pull-quote span{
-    display:block; margin-top:16px;
-    font-family:'Space Mono', monospace; font-size:0.72rem;
-    text-transform:uppercase; letter-spacing:0.06em;
-    color:rgba(237,230,214,0.6); position:relative; z-index:1;
-  }
-
-  .about-copy p{ color:var(--ink-soft); margin-bottom:18px; font-size:1.02rem; }
-  .about-copy p:last-child{margin-bottom:0;}
-
-  /* ---------- Coach ---------- */
-  .coach{
-    background:var(--walnut); color:var(--ivory);
-    border-radius:8px;
-    padding:60px;
-    display:grid; grid-template-columns:220px 1fr; gap:48px; align-items:center;
-  }
-  .coach-portrait{
-    width:220px; height:220px; border-radius:50%;
-    overflow:hidden;
-    background:linear-gradient(160deg, var(--felt), var(--felt-light));
-    display:flex; align-items:center; justify-content:center;
-    border:3px solid var(--brass);
-    flex-shrink:0;
-  }
-  .coach-portrait img{
-    width:100%; height:100%;
-    object-fit:cover;
-    display:block;
-  }
-  .coach h3{ font-size:1.6rem; margin-bottom:6px; }
-  .coach .role{ font-family:'Space Mono', monospace; font-size:0.78rem; color:var(--brass-light); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:18px; display:block;}
-  .coach p{ color:rgba(237,230,214,0.8); max-width:56ch; margin-bottom:14px; }
-  .coach p:last-of-type{ margin-bottom:0; }
-
-  /* ---------- Contact ---------- */
-  .contact{ background:var(--felt); color:var(--ivory); }
-  .contact .section-head p{ color:rgba(237,230,214,0.75); }
-  .contact-grid{
-    display:grid; grid-template-columns:1fr 1fr; gap:56px;
-  }
-  .contact-list{ display:flex; flex-direction:column; gap:22px; margin-top:8px;}
-  .contact-item{ display:flex; gap:16px; align-items:flex-start; }
-  .contact-item .ic{
-    width:38px; height:38px; border-radius:50%;
-    background:rgba(237,230,214,0.12);
-    display:flex; align-items:center; justify-content:center;
-    flex-shrink:0; font-size:1rem;
-  }
-  .contact-item a, .contact-item span{
-    text-decoration:none; color:var(--ivory); font-weight:500;
-  }
-  .contact-item .lbl{
-    display:block; font-family:'Space Mono', monospace; font-size:0.7rem;
-    text-transform:uppercase; letter-spacing:0.05em; color:rgba(237,230,214,0.55);
-    margin-bottom:3px; font-weight:400;
-  }
-  .map-frame{
-    border-radius:6px; overflow:hidden; border:1px solid rgba(237,230,214,0.2);
-    height:100%; min-height:320px;
-  }
-  .map-frame iframe{ width:100%; height:100%; border:0; filter:grayscale(0.3) contrast(1.05); }
-
-  /* ---------- Footer ---------- */
-  footer{
-    background:var(--walnut); color:rgba(237,230,214,0.55);
-    padding:36px 0; font-size:0.85rem;
-  }
-  .footer-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
-  footer a{ color:rgba(237,230,214,0.75); text-decoration:none; }
-
-  /* ---------- reveal on scroll ---------- */
-  .reveal{ opacity:0; transform:translateY(18px); transition:opacity 0.6s ease, transform 0.6s ease; }
-  .reveal.in{ opacity:1; transform:translateY(0); }
-
-  /* ---------- Responsive ---------- */
-  @media (max-width: 980px){
-    .hero-inner{ grid-template-columns:1fr; padding-top:60px; }
-    .about{ grid-template-columns:1fr; }
-    .coach{ grid-template-columns:1fr; text-align:center; padding:44px 28px; }
-    .coach-portrait{ margin:0 auto; }
-    .contact-grid{ grid-template-columns:1fr; }
-  }
-  @media (max-width: 720px){
-    nav.links{ display:none; }
-    .hamburger{ display:flex; }
-    section{ padding:64px 0; }
-    .hero-inner{ padding:52px 24px 60px; }
-  }
-
-  nav.links.mobile-open{
-    display:flex; position:absolute; top:100%; left:0; right:0;
-    background:var(--cream); flex-direction:column; gap:0;
-    border-bottom:1px solid rgba(36,24,17,0.08);
-  }
-  nav.links.mobile-open a{ padding:16px 24px; width:100%; border-bottom:1px solid rgba(36,24,17,0.06); }
-  nav.links.mobile-open a::after{ display:none; }
-
-  :focus-visible{ outline:2px solid var(--brass); outline-offset:2px; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pathakjee Chess Academy — a free, non-profit online chess learning initiative. Improve the Mind, One Move at a Time.">
+  <meta name="theme-color" content="#24113f">
+  <title>Pathakjee Chess Academy | Improve the Mind, One Move at a Time</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/script.js"></script>
 </head>
-<body>
 
-<header>
-  <div class="nav">
-    <a href="#top" class="logo">
-      <span class="logo-mark">♞</span>
-      <span>Pathakjee Chess Academy<small>Vadodara, Gujarat</small></span>
-    </a>
-    <nav class="links" id="navLinks">
-      <a href="#top">Home</a>
-      <a href="#about">About</a>
-      <!-- <a href="#courses">Courses</a> -->
-      <!-- <a href="#contact">Contact Us</a> -->
-    </nav>
-    <div class="nav-cta">
-      <a href="#contact" class="btn btn-primary">Contact Us</a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+<body>
+  <div class="top-banner">
+    <span>♟</span>
+    <strong>100% FREE ONLINE CHESS LEARNING</strong>
+    <span class="banner-detail">No fees • No subscriptions</span>
+  </div>
+
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="Pathakjee Chess Academy home">
+        <img src="images/logo.png" alt="Pathakjee Chess Academy logo">
+        <div>
+          <span class="brand-name">PATHAKJEE</span>
+          <span class="brand-sub">CHESS ACADEMY</span>
+        </div>
+      </a>
+
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#why-chess">Why Chess?</a>
+        <a href="#puzzle">Puzzle</a>
+        <a href="#play">Play Online</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-  </div>
-</header>
+  </header>
 
-<main id="top">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div>
-        <span class="eyebrow">Online Chess Academy</span>
-        <h1>Improve the Mind,<br>One Move at a Time</h1>
-        <p class="lede">Welcome to Pathakjee Chess Academy — where every move strengthens the mind. Online classes for children, adults and senior citizens.</p>
-        <div class="hero-actions">
-          <a href="#coach" class="btn btn-ghost-light">Meet the coach</a>
-          <a href="#contact" class="btn btn-primary">Contact Us</a>
-        </div>
-      </div>
-
-      <div>
-        <div class="board-frame">
-          <div class="board" id="chessBoard" aria-hidden="true"></div>
-        </div>
-        <p class="board-caption">Ruy Lopez, after 3. Bb5 — one of chess's oldest tested openings</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="wrap about">
-      <div class="pull-quote reveal">
-        <p>"Every chess master was once a beginner."</p>
-        <span>A reminder we build the academy around</span>
-      </div>
-
-      <div class="about-copy reveal">
-        <span class="eyebrow">About the academy</span>
-        <h2>About Pathakjee Chess Academy</h2>
-        <p>Pathakjee Chess Academy is a small, newly founded chess coaching space based in Vadodara, Gujarat.</p>
-        <p>It's run personally, one board at a time, without any institutional machinery behind it. The idea is simple: bring chess to anyone in Vadodara who's curious about learning it, at whatever pace suits them.</p>
-        <p>If that sounds like something you or your child would enjoy, the best next step is to get in touch directly — timings and format can be worked out together.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- COACH -->
-  <section id="coach" style="background:var(--ivory)">
-    <div class="wrap">
-      <div class="coach reveal">
-
-        <!-- ============================================================
-             EDIT THIS: Coach profile photo
-             Replace "coach-photo.jpg" below with the filename of the
-             photo you add to this same GitHub repo/folder (e.g. a
-             square, well-lit headshot works best — it will be cropped
-             into a circle automatically).
-        ============================================================ -->
-        <div class="coach-portrait">
-          <img src="coach-photo.jpg" alt="Rajendra Pathakjee">
-        </div>
-        <!-- END EDIT: Coach profile photo -->
-
-        <div>
-          <span class="role">Founder &amp; Coach</span>
-
-          <!-- ============================================================
-               EDIT THIS: Coach name and bio
-               Replace the heading and both paragraphs below with the
-               coach's real name and a short, real biography.
-          ============================================================ -->
-          <h3>Rajendra Pathakjee</h3>
-          <p>After a long career as a doctor, Rajendra Pathakjee retired and returned to a lifelong love of chess. Pathakjee Chess Academy grew out of that — a way to spend retirement sharing the game with anyone in Vadodara who wants to learn, taken up as a personal pastime rather than a business.</p>
-          <p>Chess.com: <strong>rvp1702</strong><br>Lichess: <strong>RVP-1234</strong></p>
-          <!-- END EDIT: Coach name and bio -->
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Contact</span>
-        <h2>Interested? Reach out.</h2>
-        <p>Message on WhatsApp for the fastest response, or write in by email — timings and other details can be worked out directly.</p>
-      </div>
-      <div class="contact-grid reveal">
-        <div>
-          <div class="contact-list">
-            <div class="contact-item">
-              <span class="ic">📍</span>
-              <div>
-                <span class="lbl">Location</span>
-                <span>Vadodara, Gujarat, India</span>
-              </div>
+  <main>
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">A NON-PROFIT INITIATIVE TO PROMOTE CHESS &amp; LIFELONG LEARNING</p>
+          <h1>Improve the Mind,<br><span>One Move at a Time.</span></h1>
+          <p class="hero-lead">
+            Welcome to Pathakjee Chess Academy — a friendly online place to learn,
+            think, play and grow through the beautiful game of chess.
+          </p>
+          <div class="hero-free">
+            <span class="free-badge">FREE</span>
+            <div>
+              <strong>All learning is offered free of charge</strong>
+              <small>as a service to the chess community.</small>
             </div>
-
-            <!-- ============================================================
-                 EDIT THIS: WhatsApp / mobile number
-                 Replace "919999999999" in the href below (and the
-                 displayed number on the next line) with the real
-                 WhatsApp-enabled number, in international format with
-                 no spaces or symbols, e.g. 91XXXXXXXXXX.
-            ============================================================ -->
-            <div class="contact-item">
-              <span class="ic">💬</span>
-              <div>
-                <span class="lbl">WhatsApp / Mobile</span>
-                <a href="https://wa.me/919714879800" target="_blank" rel="noopener">+91 97148 79800</a>
-              </div>
-            </div>
-            <!-- END EDIT: WhatsApp / mobile number -->
-
-            <!-- ============================================================
-                 EDIT THIS: Email address
-                 Replace "info@pathakjeechessacademy.com" in the href
-                 below (and the displayed address) with the real email.
-            ============================================================ -->
-            <div class="contact-item">
-              <span class="ic">✉</span>
-              <div>
-                <span class="lbl">Email</span>
-                <a href="mailto:rpathakjee@gmail.com">rpathakjee@gmail.com</a>
-              </div>
-            </div>
-            <!-- END EDIT: Email address -->
-
           </div>
-
-          <!-- ============================================================
-               EDIT THIS: WhatsApp button link
-               Replace "919999999999" below with the same real number
-               used above, in the same international format.
-          ============================================================ -->
-          <a href="https://wa.me/919714879800?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Pathakjee%20Chess%20Academy" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:32px;">Message on WhatsApp</a>
-          <!-- END EDIT: WhatsApp button link -->
-
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#about">Explore the Academy</a>
+            <a class="btn btn-outline" href="#puzzle">Puzzle of the Week</a>
+          </div>
         </div>
 
-        <!-- ============================================================
-             OPTIONAL EDIT: Map location
-             This currently points to Vadodara city in general. If you'd
-             like the pin to show the academy's exact address instead,
-             replace "Vadodara,Gujarat" in the src URL below with that
-             address (URL-encoded, e.g. spaces as +).
-        ============================================================ -->
-        <div class="map-frame">
-          <iframe src="https://www.google.com/maps?q=Vadodara,Gujarat&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Vadodara, Gujarat"></iframe>
+        <div class="hero-founder reveal">
+          <div class="portrait-frame">
+            <img src="images/founder.jpg" alt="Rajendra Pathakjee, Founder and Chess Instructor">
+          </div>
+          <div class="portrait-caption">
+            <strong>Rajendra Pathakjee</strong>
+            <span>Founder &amp; Chess Instructor</span>
+          </div>
         </div>
-        <!-- END OPTIONAL EDIT: Map location -->
+      </div>
+    </section>
 
+    <section class="welcome-strip">
+      <div class="container strip-inner">
+        <div>
+          <span class="mini-label">OUR PROMISE</span>
+          <h2>Chess is for everyone.</h2>
+        </div>
+        <p>Children • Adults • Senior Citizens</p>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container two-column">
+        <div class="section-heading reveal">
+          <span class="section-kicker">WELCOME</span>
+          <h2>A Gift to the Chess Community</h2>
+        </div>
+        <div class="section-text reveal">
+          <p>
+            Pathakjee Chess Academy was created with a simple purpose: to share the
+            joy of chess and help people of every age develop concentration, logical
+            thinking, patience and decision-making.
+          </p>
+          <p>
+            This is a non-profit initiative. There are no fees for learning.
+            The emphasis is on understanding the game, enjoying the process and
+            becoming a better thinker one move at a time.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="why-chess">
+      <div class="container">
+        <div class="center-heading reveal">
+          <span class="section-kicker">WHY CHESS?</span>
+          <h2>More Than a Game</h2>
+          <p>Every move is an opportunity to think, learn and improve.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="feature-icon">🧠</div>
+            <h3>Think Better</h3>
+            <p>Chess encourages concentration, planning, logical thinking and thoughtful decision-making.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">♟</div>
+            <h3>Learn Step by Step</h3>
+            <p>Build a strong foundation through simple explanations, practical positions and regular practice.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">❤️</div>
+            <h3>Enjoy the Journey</h3>
+            <p>Winning is enjoyable, but improvement, curiosity and learning from every game matter even more.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section founder-section">
+      <div class="container founder-grid">
+        <div class="founder-image reveal">
+          <img src="images/founder.jpg" alt="Rajendra Pathakjee">
+        </div>
+        <div class="founder-copy reveal">
+          <span class="section-kicker">MEET THE FOUNDER</span>
+          <h2>Rajendra Pathakjee</h2>
+          <p class="role">Founder &amp; Chess Instructor</p>
+          <p>
+            After retirement, I wanted to spend my time doing something meaningful.
+            Chess has given me years of enjoyment and intellectual challenge, and I
+            wanted to share that experience with others.
+          </p>
+          <blockquote>
+            “Every learner who comes with curiosity will receive my patience,
+            encouragement and my best effort as a teacher.”
+          </blockquote>
+          <p class="promise"><strong>My promise:</strong> learning comes before winning.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section puzzle-section" id="puzzle">
+      <div class="container puzzle-grid">
+        <div class="puzzle-copy reveal">
+          <span class="section-kicker">WEEKLY CHALLENGE</span>
+          <h2>Puzzle of the Week</h2>
+          <p class="puzzle-title">White to move • Mate in 2</p>
+          <p>
+            Take your time. Look at the whole position before making your move.
+            The aim is not simply to solve the puzzle, but to learn how to think.
+          </p>
+          <a class="btn btn-gold" href="https://www.chess.com/member/rvp1702" target="_blank" rel="noopener">Play on Chess.com</a>
+        </div>
+        <div class="puzzle-card reveal">
+          <img src="images/puzzle-week.png" alt="Pathakjee Chess Academy Puzzle of the Week">
+        </div>
+      </div>
+    </section>
+
+    <section class="section online-section" id="play">
+      <div class="container">
+        <div class="center-heading reveal">
+          <span class="section-kicker">PLAY &amp; PRACTISE</span>
+          <h2>Find Me Online</h2>
+          <p>Play a game, follow the games, or simply practise your chess.</p>
+        </div>
+
+        <div class="profile-grid">
+          <a class="profile-card reveal" href="https://www.chess.com/member/rvp1702" target="_blank" rel="noopener">
+            <span class="profile-icon">♟</span>
+            <span class="profile-label">Chess.com</span>
+            <strong>rvp1702</strong>
+            <small>View profile →</small>
+          </a>
+          <a class="profile-card reveal" href="https://lichess.org/@/RVP-1234" target="_blank" rel="noopener">
+            <span class="profile-icon">♞</span>
+            <span class="profile-label">Lichess</span>
+            <strong>RVP-1234</strong>
+            <small>View profile →</small>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="thought-section">
+      <div class="container thought-card reveal">
+        <span class="section-kicker">RAJENDRAJI'S CHESS THOUGHT</span>
+        <p>“Every chess master was once a beginner who kept learning.”</p>
+        <small>Improve the Mind, One Move at a Time.</small>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-card reveal">
+        <div>
+          <span class="section-kicker">GET IN TOUCH</span>
+          <h2>Start Your Chess Journey</h2>
+          <p>There are no fees. If you would like to learn, simply get in touch.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:rpathakjee@gmail.com">✉ rpathakjee@gmail.com</a>
+          <a href="https://wa.me/919714879800" target="_blank" rel="noopener">☏ +91 97148 79800</a>
+          <span>📍 Vadodara, Gujarat, India</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>PATHAKJEE CHESS ACADEMY</strong>
+        <p>Improve the Mind, One Move at a Time.</p>
+      </div>
+      <div class="footer-note">
+        <strong>100% FREE • NON-PROFIT • ONLINE</strong>
+        <p>Knowledge grows when it is shared.</p>
       </div>
     </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="wrap footer-inner">
-    <span>© 2026 Pathakjee Chess Academy, Vadodara.</span>
-    <span>A personal chess coaching initiative.</span>
-  </div>
-</footer>
-
-<script>
-  // Mobile nav toggle
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('mobile-open');
-  });
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    navLinks.classList.remove('mobile-open');
-  }));
-
-  // Scroll reveal
-  const revealEls = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    revealEls.forEach(el => io.observe(el));
-  } else {
-    revealEls.forEach(el => el.classList.add('in'));
-  }
-
-  // Build hero chessboard: Ruy Lopez position after 1.e4 e5 2.Nf3 Nc6 3.Bb5
-  // Row 0 = rank 8 (black back rank) ... Row 7 = rank 1 (white back rank)
-  const layout = [
-    ["r","n","b","q","k","b","n","r"],
-    ["p","p","p","p",".","p","p","p"],
-    [".",".","n",".",".",".",".","."],
-    [".","B",".",".","p",".",".","."],
-    [".",".",".",".","P",".",".","."],
-    [".",".",".",".",".","N",".","."],
-    ["P","P","P","P",".","P","P","P"],
-    ["R","N","B","Q","K",".",".","R"]
-  ];
-  <!-- const glyphs = {    "p":"♟","r":"♜","n":"♞","b":"♝","q":"♛","k":"♚",    "P":"♙","R":"♖","N":"♘","B":"♗","Q":"♕","K":"♔"  }; -->
-  const glyphs = {
-  "p":"♟","r":"♜","n":"♞","b":"♝","q":"♛","k":"♚",
-  "P":"♟","R":"♜","N":"♞","B":"♝","Q":"♛","K":"♚"
-  };
-  const boardEl = document.getElementById('chessBoard');
-  let delay = 0;
-  layout.forEach((row, r) => {
-    row.forEach((cell, c) => {
-      const sq = document.createElement('div');
-      const isLight = (r + c) % 2 === 0;
-      sq.className = 'sq ' + (isLight ? 'light' : 'dark');
-      if (cell !== '.') {
-        const isWhitePiece = cell === cell.toUpperCase();
-        const span = document.createElement('span');
-        span.className = isWhitePiece ? 'piece-w' : 'piece-b';
-        span.textContent = glyphs[cell];
-        sq.appendChild(span);
-      }
-      sq.style.animationDelay = (delay * 0.012) + 's';
-      delay++;
-      boardEl.appendChild(sq);
-    });
-  });
-</script>
-
+    <div class="copyright">© 2026 Pathakjee Chess Academy. All rights reserved.</div>
+  </footer>
 </body>
 </html>
