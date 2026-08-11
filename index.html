@@ -198,8 +198,22 @@
 
           <div class="form-row">
             <label for="phone">Phone / WhatsApp</label>
-            <input type="tel" id="phone" name="Phone">
+            <input type="tel" id="phone" name="Phone" inputmode="tel" autocomplete="tel" placeholder="e.g. +91 97148 79800">
           </div>
+
+          <fieldset class="form-row form-choice">
+            <legend>I am registering for</legend>
+            <div class="choice-grid">
+              <label class="choice-option">
+                <input type="radio" name="Registering For" value="Myself" checked>
+                <span>Myself</span>
+              </label>
+              <label class="choice-option">
+                <input type="radio" name="Registering For" value="My child">
+                <span>My child</span>
+              </label>
+            </div>
+          </fieldset>
 
           <div class="form-two">
             <div class="form-row">
@@ -229,7 +243,8 @@
           </div>
 
           <button class="btn btn-gold form-submit" type="submit">Register Interest</button>
-          <p class="form-note">Submitting this form will open your email app to send the details to <strong>rpathakjee@gmail.com</strong>.</p>
+          <a class="btn btn-whatsapp form-whatsapp" href="https://wa.me/919714879800?text=Hello%2C%20I%27m%20interested%20in%20the%20100%25%20free%20online%20chess%20learning%20at%20Pathakjee%20Chess%20Academy." target="_blank" rel="noopener">💬 Register via WhatsApp</a>
+          <p class="form-note">Choose email or WhatsApp — whichever is easier. There are no fees, subscriptions or financial transactions.</p>
         </form>
       </div>
     </section>
