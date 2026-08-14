@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | Pathakjee Chess Academy</title>
+
+  <style>
+    :root {
+      --purple: #24103f;
+      --purple-dark: #160b29;
+      --gold: #d4af37;
+      --cream: #f7f3ea;
+      --white: #ffffff;
+      --muted: #625b70;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: var(--cream);
+      color: var(--purple);
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--purple);
+      color: white;
+      height: 82px;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-inner {
+      width: min(1100px, 92%);
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-name {
+      font-family: Georgia, serif;
+      font-size: 25px;
+      letter-spacing: 2px;
+    }
+
+    .brand-sub {
+      display: block;
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 3px;
+      margin-top: 3px;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 70px 20px;
+    }
+
+    .thank-you-card {
+      width: min(700px, 100%);
+      background: white;
+      border-radius: 22px;
+      padding: 55px 40px;
+      text-align: center;
+      box-shadow: 0 18px 45px rgba(36, 16, 63, 0.15);
+      border-top: 5px solid var(--gold);
+    }
+
+    .chess-piece {
+      font-size: 52px;
+      margin-bottom: 15px;
+    }
+
+    .kicker {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin: 0 0 20px;
+      color: var(--purple);
+    }
+
+    .message {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+      margin: 0 auto 30px;
+      max-width: 560px;
+    }
+
+    .academy {
+      font-family: Georgia, serif;
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 25px;
+    }
+
+    .tagline {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .return-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 28px;
+      background: var(--gold);
+      color: var(--purple-dark);
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .return-button:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    footer {
+      background: var(--purple-dark);
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    footer strong {
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    footer p {
+      margin: 8px 0 0;
+      color: #c9bed5;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        height: 70px;
+      }
+
+      .brand-name {
+        font-size: 20px;
+      }
+
+      .thank-you-card {
+        padding: 40px 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div>
+          <div class="brand-name">PATHAKJEE</div>
+          <span class="brand-sub">CHESS ACADEMY</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="thank-you-card">
+
+      <div class="chess-piece">♟</div>
+
+      <div class="kicker">REGISTRATION RECEIVED</div>
+
+      <h1>Thank You!</h1>
+
+      <p class="message">
+        Your registration interest has been received successfully.
+        I will get back to you soon.
+      </p>
+
+      <div class="academy">
+        Pathakjee Chess Academy
+      </div>
+
+      <div class="tagline">
+        Improve the Mind, One Move at a Time.
+      </div>
+
+      <a class="return-button"
+         href="index.html">
+        ← Return to Academy
+      </a>
+
+    </div>
+  </main>
+
+  <footer>
+    <strong>100% FREE • NON-PROFIT • ONLINE</strong>
+    <p>Knowledge grows when it is shared.</p>
+  </footer>
+
+</body>
+</html>
