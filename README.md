@@ -15,7 +15,7 @@ The homepage is designed around:
 - 100% FREE online chess learning
 - Non-profit/community philosophy
 - Rajendra Pathakjee founder section
-- Puzzle of the Week
+- Registration Form
 - Chess.com: rvp1702
 - Lichess: RVP-1234
 - Mobile responsive purple-and-gold design

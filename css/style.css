@@ -52,7 +52,7 @@ a{text-decoration:none;color:inherit}
 .section-text{font-size:1.04rem;color:var(--muted)}.section-text p+p{margin-top:17px}
 .section-dark{background:var(--purple);color:#fff}.section-dark .center-heading h2{color:#fff}.center-heading{text-align:center;max-width:720px;margin:0 auto 42px}.center-heading p{color:#d8cde3;margin-top:12px}
 .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.feature-card{background:rgba(255,255,255,.07);border:1px solid rgba(240,212,119,.18);padding:30px;border-radius:20px;transition:.3s}.feature-card:hover{transform:translateY(-5px);background:rgba(255,255,255,.1)}.feature-icon{font-size:2rem;margin-bottom:15px}.feature-card h3{font-family:"Cormorant Garamond",serif;font-size:1.7rem;color:var(--gold-light);margin-bottom:8px}.feature-card p{color:#d9d0e2}
-.founder-section{background:#fff}.founder-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center}.founder-image{border-radius:24px;overflow:hidden;box-shadow:var(--shadow);border:7px solid #fff;outline:1px solid rgba(212,175,55,.5)}.founder-image img{width:100%;aspect-ratio:1/1.05;object-fit:cover}.role{color:var(--purple-3);font-weight:700;margin:7px 0 20px}.founder-copy p{color:var(--muted)}blockquote{margin:25px 0;padding:22px 24px;border-left:4px solid var(--gold);background:#faf6e9;color:var(--purple);font-family:"Cormorant Garamond",serif;font-size:1.35rem}.promise{color:var(--purple)!important}
+.founder-section{background:#fff}.founder-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center}.founder-image{border-radius:24px;overflow:hidden;box-shadow:var(--shadow);border:7px solid #fff;outline:1px solid rgba(212,175,55,.5)}.founder-image img{width:100%;aspect-ratio:1/1.05;object-fit:cover}.academy-logo-panel{background:linear-gradient(145deg,#fffdf8,#f7f0dd);display:flex;align-items:center;justify-content:center;padding:34px;box-sizing:border-box}.academy-logo-panel img{width:82%;height:auto;aspect-ratio:auto;object-fit:contain;filter:drop-shadow(0 10px 18px rgba(28,15,44,.12))}.role{color:var(--purple-3);font-weight:700;margin:7px 0 20px}.founder-copy p{color:var(--muted)}blockquote{margin:25px 0;padding:22px 24px;border-left:4px solid var(--gold);background:#faf6e9;color:var(--purple);font-family:"Cormorant Garamond",serif;font-size:1.35rem}.promise{color:var(--purple)!important}
 .puzzle-section{background:#f2eee5}.puzzle-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}.puzzle-title{font-weight:800;color:var(--purple);font-size:1.15rem;margin:20px 0 10px}.puzzle-copy>p:not(.puzzle-title){color:var(--muted);margin-bottom:25px}.puzzle-card{background:#fff;padding:12px;border-radius:22px;box-shadow:var(--shadow)}.puzzle-card img{width:100%;border-radius:15px}
 .online-section{background:#fff}.profile-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:760px;margin:auto}.profile-card{padding:28px;border:1px solid var(--line);border-radius:20px;background:#fff;box-shadow:0 8px 25px rgba(28,15,44,.06);display:grid;grid-template-columns:auto 1fr;column-gap:15px;transition:.25s}.profile-card:hover{transform:translateY(-4px);border-color:var(--gold)}.profile-icon{grid-row:span 3;font-size:2.4rem;color:var(--purple)}.profile-label{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}.profile-card strong{font-family:"Cormorant Garamond",serif;font-size:1.8rem;color:var(--purple)}.profile-card small{color:var(--purple-3)}
 .thought-section{padding:70px 0;background:linear-gradient(135deg,#32195a,var(--purple));color:#fff}.thought-card{text-align:center}.thought-card p{font-family:"Cormorant Garamond",serif;font-size:clamp(2rem,4vw,3rem);max-width:800px;margin:16px auto;color:#fff}.thought-card small{color:#dfd2e8}
@@ -238,7 +238,7 @@ img {
 
   .founder-image {
     width: 100%;
-    max-width: 520px;
+    max-width: 360px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -248,6 +248,15 @@ img {
     height: auto;
     aspect-ratio: auto;
     object-fit: contain;
+  }
+
+  .academy-logo-panel {
+    min-height: 280px;
+    padding: 28px;
+  }
+
+  .academy-logo-panel img {
+    width: min(78%, 280px);
   }
 
   .feature-grid,
