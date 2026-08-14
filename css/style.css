@@ -129,3 +129,269 @@ a{text-decoration:none;color:inherit}
   .strip-inner{display:block}.strip-inner p{margin-top:5px}.section{padding:58px 0}.contact-card{padding:30px}.hero-actions .btn{width:100%;text-align:center}
   .registration-form{padding:22px 18px}.choice-grid{grid-template-columns:1fr}.choice-option{min-height:48px}.form-submit,.form-whatsapp{min-height:50px;display:flex;align-items:center;justify-content:center}
 }
+
+
+/* =========================================================
+   MOBILE RESPONSIVE PATCH
+   Keeps desktop layout unchanged and fixes iPhone layout.
+   ========================================================= */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+img, video, iframe {
+  max-width: 100%;
+}
+
+@media (max-width: 850px) {
+  body {
+    width: 100%;
+  }
+
+  .top-banner,
+  .site-header,
+  main,
+  .site-footer,
+  section,
+  .thought-section {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .nav-wrap {
+    min-height: 68px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .brand {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .brand-name,
+  .brand-sub {
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    left: 16px;
+    right: 16px;
+    top: 68px;
+    width: auto;
+    max-width: none;
+    box-sizing: border-box;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 7px 4px;
+  }
+
+  .hero-grid,
+  .two-column,
+  .founder-grid,
+  .puzzle-grid,
+  .registration-grid,
+  .contact-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+  }
+
+  .hero-grid {
+    gap: 38px;
+  }
+
+  .hero-copy,
+  .hero-founder,
+  .founder-copy,
+  .registration-copy,
+  .registration-form,
+  .section-heading,
+  .section-text,
+  .center-heading {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .hero-founder {
+    justify-self: center;
+    width: 100%;
+  }
+
+  .portrait-frame {
+    width: min(100%, 360px);
+    height: auto;
+    aspect-ratio: auto;
+    margin: 0 auto;
+  }
+
+  .portrait-frame img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+
+  .founder-image {
+    width: min(100%, 420px);
+    margin: 0 auto;
+  }
+
+  .founder-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+
+  .feature-grid,
+  .profile-grid {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+  }
+
+  .feature-card,
+  .profile-card {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .registration-form {
+    width: 100%;
+    padding: 24px 20px;
+  }
+
+  .form-two {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .form-row,
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    box-sizing: border-box;
+  }
+
+  .form-submit {
+    width: 100%;
+  }
+
+  .thought-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .thought-card p {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 560px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .top-banner {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: .68rem;
+    line-height: 1.3;
+  }
+
+  .nav-wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .brand img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .brand-name {
+    font-size: 1.15rem;
+  }
+
+  .brand-sub {
+    font-size: .58rem;
+    letter-spacing: .18em;
+  }
+
+  .hero {
+    padding: 52px 0 60px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.45rem, 12vw, 3.2rem);
+    overflow-wrap: normal;
+  }
+
+  .hero-lead {
+    font-size: .98rem;
+  }
+
+  .hero-actions {
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .portrait-frame {
+    width: min(100%, 330px);
+    padding: 6px;
+  }
+
+  .portrait-frame img {
+    border-radius: 15px;
+  }
+
+  .section {
+    padding: 58px 0;
+  }
+
+  .section-heading h2,
+  .center-heading h2,
+  .founder-copy h2,
+  .registration-copy h2,
+  .contact-card h2 {
+    font-size: clamp(2.25rem, 11vw, 3rem);
+    overflow-wrap: normal;
+  }
+
+  .registration-form {
+    padding: 22px 16px;
+    border-radius: 18px;
+  }
+
+  .profile-card {
+    padding: 24px 20px;
+  }
+
+  .contact-card {
+    padding: 28px 20px;
+  }
+}
