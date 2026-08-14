@@ -132,8 +132,8 @@ a{text-decoration:none;color:inherit}
 
 
 /* =========================================================
-   MOBILE RESPONSIVE PATCH
-   Keeps desktop layout unchanged and fixes iPhone layout.
+   FINAL MOBILE RESPONSIVE FIX
+   Desktop layout is preserved.
    ========================================================= */
 html, body {
   width: 100%;
@@ -142,60 +142,56 @@ html, body {
   overflow-x: hidden;
 }
 
-img, video, iframe {
+*, *::before, *::after {
+  min-width: 0;
+}
+
+img {
   max-width: 100%;
 }
 
-@media (max-width: 850px) {
-  body {
-    width: 100%;
-  }
-
-  .top-banner,
-  .site-header,
-  main,
-  .site-footer,
-  section,
-  .thought-section {
-    width: 100%;
-    max-width: 100%;
-  }
-
+@media screen and (max-width: 900px) {
   .container {
-    width: 100%;
-    max-width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
+    width: calc(100% - 28px);
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .nav-wrap {
-    min-height: 68px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    min-height: 72px;
   }
 
-  .brand {
-    min-width: 0;
-    flex: 1 1 auto;
-  }
-
-  .brand-name,
-  .brand-sub {
-    white-space: nowrap;
+  .menu-toggle {
+    display: block;
+    flex: 0 0 auto;
   }
 
   .nav-links {
-    left: 16px;
-    right: 16px;
-    top: 68px;
+    display: none;
+    position: absolute;
+    left: 3%;
+    right: 3%;
+    top: 72px;
     width: auto;
-    max-width: none;
-    box-sizing: border-box;
+    padding: 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--purple);
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 18px 35px rgba(0,0,0,.25);
+  }
+
+  .nav-links.open {
+    display: flex;
   }
 
   .nav-links a {
+    display: block;
     width: 100%;
-    padding: 7px 4px;
+    padding: 11px 8px;
+    font-size: 1rem;
   }
 
   .hero-grid,
@@ -204,13 +200,10 @@ img, video, iframe {
   .puzzle-grid,
   .registration-grid,
   .contact-card {
-    display: grid;
     grid-template-columns: minmax(0, 1fr);
     width: 100%;
-  }
-
-  .hero-grid {
-    gap: 38px;
+    max-width: 100%;
+    gap: 36px;
   }
 
   .hero-copy,
@@ -219,22 +212,21 @@ img, video, iframe {
   .registration-copy,
   .registration-form,
   .section-heading,
-  .section-text,
-  .center-heading {
-    min-width: 0;
+  .section-text {
+    width: 100%;
     max-width: 100%;
   }
 
   .hero-founder {
     justify-self: center;
-    width: 100%;
   }
 
+  /* IMPORTANT: show the complete portrait on phones */
   .portrait-frame {
     width: min(100%, 360px);
     height: auto;
     aspect-ratio: auto;
-    margin: 0 auto;
+    padding: 7px;
   }
 
   .portrait-frame img {
@@ -245,8 +237,10 @@ img, video, iframe {
   }
 
   .founder-image {
-    width: min(100%, 420px);
-    margin: 0 auto;
+    width: 100%;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .founder-image img {
@@ -257,71 +251,53 @@ img, video, iframe {
   }
 
   .feature-grid,
-  .profile-grid {
+  .profile-grid,
+  .form-two {
     grid-template-columns: minmax(0, 1fr);
-    width: 100%;
   }
 
-  .feature-card,
   .profile-card {
-    min-width: 0;
     width: 100%;
   }
 
   .registration-form {
     width: 100%;
+    max-width: 100%;
     padding: 24px 20px;
   }
 
-  .form-two {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .form-row,
-  .form-row input,
-  .form-row select,
-  .form-row textarea {
+  .registration-form input,
+  .registration-form select,
+  .registration-form textarea {
     width: 100%;
     max-width: 100%;
-    min-width: 0;
-  }
-
-  .form-row input,
-  .form-row select,
-  .form-row textarea {
     box-sizing: border-box;
+    font-size: 16px;
   }
 
   .form-submit {
     width: 100%;
+    max-width: 100%;
   }
 
-  .thought-card {
-    width: 100%;
+  .contact-card {
+    padding: 30px 22px;
+  }
+
+  .contact-links {
     min-width: 0;
-  }
-
-  .thought-card p {
     overflow-wrap: anywhere;
   }
 }
 
-@media (max-width: 560px) {
-  .container {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
+@media screen and (max-width: 560px) {
   .top-banner {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 7px 10px;
     font-size: .68rem;
-    line-height: 1.3;
   }
 
-  .nav-wrap {
-    padding-left: 16px;
-    padding-right: 16px;
+  .banner-detail {
+    display: none;
   }
 
   .brand img {
@@ -335,20 +311,16 @@ img, video, iframe {
 
   .brand-sub {
     font-size: .58rem;
-    letter-spacing: .18em;
+    letter-spacing: .16em;
   }
 
   .hero {
-    padding: 52px 0 60px;
+    padding: 45px 0 50px;
   }
 
   .hero h1 {
-    font-size: clamp(2.45rem, 12vw, 3.2rem);
-    overflow-wrap: normal;
-  }
-
-  .hero-lead {
-    font-size: .98rem;
+    font-size: clamp(2.45rem, 12vw, 3.3rem);
+    line-height: 1;
   }
 
   .hero-actions {
@@ -361,37 +333,66 @@ img, video, iframe {
   }
 
   .portrait-frame {
-    width: min(100%, 330px);
-    padding: 6px;
-  }
-
-  .portrait-frame img {
-    border-radius: 15px;
+    width: 100%;
+    max-width: 350px;
   }
 
   .section {
-    padding: 58px 0;
+    padding: 56px 0;
   }
 
-  .section-heading h2,
-  .center-heading h2,
-  .founder-copy h2,
-  .registration-copy h2,
-  .contact-card h2 {
-    font-size: clamp(2.25rem, 11vw, 3rem);
-    overflow-wrap: normal;
+  .feature-card,
+  .profile-card {
+    padding: 24px;
   }
 
   .registration-form {
-    padding: 22px 16px;
+    padding: 22px 18px;
     border-radius: 18px;
   }
 
-  .profile-card {
-    padding: 24px 20px;
+  .registration-form input,
+  .registration-form select,
+  .registration-form textarea {
+    min-height: 44px;
   }
 
-  .contact-card {
-    padding: 28px 20px;
+  .registration-form textarea {
+    min-height: 92px;
+  }
+}
+
+
+/* =========================================================
+   FINAL MOBILE HERO HEADING REFINEMENT
+   Keeps the desktop heading unchanged.
+   ========================================================= */
+@media screen and (max-width: 560px) {
+  .hero-copy {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .hero .eyebrow {
+    font-size: .66rem;
+    line-height: 1.7;
+    letter-spacing: .18em;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.25rem, 10.5vw, 2.85rem);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    margin-bottom: 22px;
+  }
+
+  .hero h1 span {
+    display: inline;
+  }
+
+  .hero-lead {
+    font-size: 1rem;
+    line-height: 1.65;
   }
 }
