@@ -174,7 +174,7 @@
           </div>
         </div>
 
-        <form class="registration-form reveal" id="registrationForm" action="mailto:rpathakjee@gmail.com" method="post" enctype="text/plain">
+        <form class="registration-form reveal" id="registrationForm" action="https://formsubmit.co/rpathakjee@gmail.com" method="POST">
           <div class="form-row">
             <label for="name">Full Name *</label>
             <input type="text" id="name" name="Name" required>
@@ -189,11 +189,6 @@
               <label for="city">City</label>
               <input type="text" id="city" name="City">
             </div>
-          </div>
-
-          <div class="form-row">
-            <label for="email">Email *</label>
-            <input type="email" id="email" name="Email" required>
           </div>
 
           <div class="form-row">
@@ -228,8 +223,13 @@
             <textarea id="message" name="Message" rows="3" placeholder="For example: beginner, child learning chess, adult learner, etc."></textarea>
           </div>
 
+          <input type="hidden" name="_subject" value="New Registration Interest — Pathakjee Chess Academy">
+          <input type="hidden" name="_next" value="https://rvpathakjee.github.io/thank-you.html">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+
           <button class="btn btn-gold form-submit" type="submit">Register Interest</button>
-          <p class="form-note">Submitting this form will open your email app to send the details to <strong>rpathakjee@gmail.com</strong>.</p>
+          <p class="form-note">Your details will be sent securely to the academy. You will then see a Thank You page with a link back to the website.</p>
         </form>
       </div>
     </section>

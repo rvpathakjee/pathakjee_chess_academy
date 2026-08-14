@@ -19,3 +19,7 @@ The homepage is designed around:
 - Chess.com: rvp1702
 - Lichess: RVP-1234
 - Mobile responsive purple-and-gold design
+
+
+### Registration form
+The registration form submits to `rpathakjee@gmail.com` through FormSubmit and redirects to `thank-you.html`. On the first submission, FormSubmit may require the recipient to confirm the destination email address.
