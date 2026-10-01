@@ -31,6 +31,85 @@
   ]
 }
 </script>
+
+  <style>
+    /* Mobile refinements: smaller header/logo, tighter section spacing, simpler form. */
+    @media (max-width: 767px) {
+      .site-header {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+      }
+
+      .nav-wrap {
+        min-height: 58px !important;
+      }
+
+      .brand img {
+        width: 58px !important;
+        height: 58px !important;
+        object-fit: contain;
+      }
+
+      .brand-name {
+        font-size: 1.45rem !important;
+      }
+
+      .brand-sub {
+        font-size: 0.72rem !important;
+        letter-spacing: 0.18em !important;
+      }
+
+      .section {
+        padding-top: 52px !important;
+        padding-bottom: 52px !important;
+      }
+
+      .two-column,
+      .founder-grid,
+      .registration-grid {
+        gap: 28px !important;
+      }
+
+      .section-heading,
+      .section-text {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+      }
+
+      .section-text p + p {
+        margin-top: 18px !important;
+      }
+
+      .section-dark {
+        padding-top: 48px !important;
+        padding-bottom: 48px !important;
+      }
+
+      .founder-section {
+        padding-top: 48px !important;
+        padding-bottom: 48px !important;
+      }
+
+      .registration-section {
+        padding-top: 48px !important;
+        padding-bottom: 48px !important;
+      }
+
+      .registration-form {
+        padding: 24px !important;
+      }
+
+      .registration-form .form-row {
+        margin-bottom: 18px !important;
+      }
+
+      .improvement-free-text textarea {
+        min-height: 112px;
+        resize: vertical;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -90,8 +169,9 @@
 
         <div class="hero-founder reveal">
           <div class="portrait-frame">
-            <img src="images/logo.png" alt="Pathakjee Chess Academy logo">
+            <img src="images/founder.jpg" alt="Founder photograph">
           </div>
+          <div class="portrait-caption"></div>
         </div>
       </div>
     </section>
@@ -139,7 +219,7 @@
         Gujarat, offering chess learning for children, adults and senior citizens.
       </p>
       <p>
-        It is a non-profit initiative founded to help learners
+        It is a non-profit initiative founded by Rajendra Pathakjee to help learners
         think, learn and improve through chess.
       </p>
     </div>
@@ -250,67 +330,9 @@
             </div>
           </div>
 
-          <div class="form-row">
-            <fieldset class="improvement-fieldset">
-              <legend>What would you like the student to improve? *</legend>
-
-              <div class="improvement-grid">
-                <label class="improvement-option">
-                  <input type="checkbox" name="Area for Improvement" value="Chess fundamentals">
-                  <span>Chess fundamentals</span>
-                </label>
-
-                <label class="improvement-option">
-                  <input type="checkbox" name="Area for Improvement" value="Tactical skills">
-                  <span>Tactical skills</span>
-                </label>
-
-                <label class="improvement-option">
-                  <input type="checkbox" name="Area for Improvement" value="Strategic training">
-                  <span>Strategic training</span>
-                </label>
-
-                <label class="improvement-option">
-                  <input type="checkbox" name="Area for Improvement" value="Opening principles">
-                  <span>Opening principles</span>
-                </label>
-
-                <label class="improvement-option">
-                  <input type="checkbox" name="Area for Improvement" value="Middlegame understanding">
-                  <span>Middlegame understanding</span>
-                </label>
-
-                <label class="improvement-option">
-                  <input type="checkbox" name="Area for Improvement" value="Endgame skills">
-                  <span>Endgame skills</span>
-                </label>
-
-                <label class="improvement-option">
-                  <input type="checkbox" name="Area for Improvement" value="Calculation">
-                  <span>Calculation</span>
-                </label>
-
-                <label class="improvement-option">
-                  <input type="checkbox" name="Area for Improvement" value="Tournament preparation">
-                  <span>Tournament preparation</span>
-                </label>
-
-                <label class="improvement-option">
-                  <input type="checkbox" name="Area for Improvement" value="Improving online rating">
-                  <span>Improving online rating</span>
-                </label>
-
-                <label class="improvement-option">
-                  <input type="checkbox" name="Area for Improvement" value="Overall chess development">
-                  <span>Overall chess development</span>
-                </label>
-              </div>
-            </fieldset>
-          </div>
-
-          <div class="form-row">
-            <label for="message">Anything you'd like me to know?</label>
-            <textarea id="message" name="Message" rows="3" placeholder="For example: beginner, child learning chess, adult learner, etc."></textarea>
+          <div class="form-row improvement-free-text">
+            <label for="improvement">What would you like to improve?</label>
+            <textarea id="improvement" name="What would you like to improve" rows="4" placeholder="A few words about what you want to improve"></textarea>
           </div>
 
           <input type="hidden" name="_subject" value="New Registration Interest — Pathakjee Chess Academy">
