@@ -33,95 +33,36 @@
 </script>
 
   <style>
-    /* Mobile refinements: smaller header/logo, tighter section spacing, simpler form. */
+    /* Mobile refinements: cleaner first screen, no duplicate founder photo, tighter spacing. */
     @media (max-width: 767px) {
-      .site-header {
-        padding-top: 10px !important;
-        padding-bottom: 10px !important;
-      }
+      .site-header { padding-top: 10px !important; padding-bottom: 10px !important; }
+      .nav-wrap { min-height: 58px !important; }
+      .brand img { width: 58px !important; height: 58px !important; object-fit: contain; }
+      .brand-name { font-size: 1.45rem !important; }
+      .brand-sub { font-size: 0.72rem !important; letter-spacing: 0.18em !important; }
 
-      .nav-wrap {
-        min-height: 58px !important;
-      }
+      /* Keep the home screen focused on the academy message. */
+      .hero { padding-top: 42px !important; padding-bottom: 42px !important; }
+      .hero-grid { grid-template-columns: 1fr !important; }
+      .hero-copy { max-width: 100% !important; }
+      .hero-free { margin-top: 24px !important; }
+      .hero-actions { display: none !important; }
 
-      .brand img {
-        width: 58px !important;
-        height: 58px !important;
-        object-fit: contain;
-      }
-
-      .brand-name {
-        font-size: 1.45rem !important;
-      }
-
-      .brand-sub {
-        font-size: 0.72rem !important;
-        letter-spacing: 0.18em !important;
-      }
-
-      .section {
-        padding-top: 52px !important;
-        padding-bottom: 52px !important;
-      }
-
-      .two-column,
-      .founder-grid,
-      .registration-grid {
-        gap: 28px !important;
-      }
-
-      .section-heading,
-      .section-text {
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-      }
-
-      .section-text p + p {
-        margin-top: 18px !important;
-      }
-
-      .section-dark {
-        padding-top: 48px !important;
-        padding-bottom: 48px !important;
-      }
-
-      .founder-section {
-        padding-top: 48px !important;
-        padding-bottom: 48px !important;
-      }
-
-      .registration-section {
-        padding-top: 48px !important;
-        padding-bottom: 48px !important;
-      }
-
-      .registration-form {
-        padding: 24px !important;
-      }
-
-      .registration-form .form-row {
-        margin-bottom: 18px !important;
-      }
-
-      .improvement-free-text textarea {
-        min-height: 112px;
-        resize: vertical;
-      }
-
-      /* Final mobile polish: improve contrast and trim a little vertical space. */
-      .online-section {
-        padding-top: 38px !important;
-        padding-bottom: 40px !important;
-      }
-
-      .online-section .center-heading p {
-        color: #5f5668 !important;
-      }
-
-      .founder-section {
-        padding-top: 42px !important;
-        padding-bottom: 42px !important;
-      }
+      .section { padding-top: 42px !important; padding-bottom: 42px !important; }
+      .two-column, .founder-grid, .registration-grid { gap: 24px !important; }
+      .section-heading, .section-text { margin-top: 0 !important; margin-bottom: 0 !important; }
+      .section-text p + p { margin-top: 16px !important; }
+      .section-dark { padding-top: 42px !important; padding-bottom: 42px !important; }
+      .feature-grid { gap: 20px !important; }
+      .feature-card { padding: 32px 30px !important; }
+      .founder-section { padding-top: 42px !important; padding-bottom: 42px !important; }
+      .founder-image { margin-bottom: 4px !important; }
+      .registration-section { padding-top: 42px !important; padding-bottom: 42px !important; }
+      .registration-form { padding: 24px !important; }
+      .registration-form .form-row { margin-bottom: 16px !important; }
+      .improvement-free-text textarea { min-height: 112px; resize: vertical; }
+      .online-section { padding-top: 36px !important; padding-bottom: 38px !important; }
+      .online-section .center-heading p { color: #5f5668 !important; }
     }
   </style>
 
@@ -176,18 +117,8 @@
               <small>as a service to the chess community.</small>
             </div>
           </div>
-          <div class="hero-actions">
-            <a class="btn btn-gold" href="#about">Explore the Academy</a>
-            <a class="btn btn-outline" href="#registration">Registration Form</a>
-          </div>
         </div>
 
-        <div class="hero-founder reveal">
-          <div class="portrait-frame">
-            <img src="images/founder.jpg" alt="Founder photograph">
-          </div>
-          <div class="portrait-caption"></div>
-        </div>
       </div>
     </section>
 
@@ -254,7 +185,7 @@
             <p>Chess encourages concentration, planning, logical thinking and thoughtful decision-making.</p>
           </article>
           <article class="feature-card reveal">
-            <div class="feature-icon">♟</div>
+            <div class="feature-icon">♕</div>
             <h3>Learn Step by Step</h3>
             <p>Build a strong foundation through simple explanations, practical positions and regular practice.</p>
           </article>
