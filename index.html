@@ -33,6 +33,11 @@
 </script>
 
   <style>
+    /* The founder photograph appears only in the dedicated founder section. */
+    .hero-grid {
+      grid-template-columns: 1fr !important;
+    }
+
     /* Mobile refinements: smaller header/logo, tighter section spacing, simpler form. */
     @media (max-width: 767px) {
       .site-header {
@@ -167,12 +172,6 @@
           </div>
         </div>
 
-        <div class="hero-founder reveal">
-          <div class="portrait-frame">
-            <img src="images/founder.jpg" alt="Founder photograph">
-          </div>
-          <div class="portrait-caption"></div>
-        </div>
       </div>
     </section>
 
