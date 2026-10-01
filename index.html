@@ -33,11 +33,6 @@
 </script>
 
   <style>
-    /* The founder photograph appears only in the dedicated founder section. */
-    .hero-grid {
-      grid-template-columns: 1fr !important;
-    }
-
     /* Mobile refinements: smaller header/logo, tighter section spacing, simpler form. */
     @media (max-width: 767px) {
       .site-header {
@@ -67,24 +62,6 @@
       .section {
         padding-top: 52px !important;
         padding-bottom: 52px !important;
-      }
-
-      /* Keep the opening screen compact; navigation is available from the menu. */
-      .hero {
-        padding-top: 44px !important;
-        padding-bottom: 44px !important;
-      }
-
-      .hero-copy .eyebrow {
-        margin-bottom: 18px !important;
-      }
-
-      .hero-copy h1 {
-        margin-bottom: 22px !important;
-      }
-
-      .hero-lead {
-        margin-bottom: 24px !important;
       }
 
       .two-column,
@@ -129,6 +106,21 @@
       .improvement-free-text textarea {
         min-height: 112px;
         resize: vertical;
+      }
+
+      /* Final mobile polish: improve contrast and trim a little vertical space. */
+      .online-section {
+        padding-top: 38px !important;
+        padding-bottom: 40px !important;
+      }
+
+      .online-section .center-heading p {
+        color: #5f5668 !important;
+      }
+
+      .founder-section {
+        padding-top: 42px !important;
+        padding-bottom: 42px !important;
       }
     }
   </style>
@@ -184,8 +176,18 @@
               <small>as a service to the chess community.</small>
             </div>
           </div>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#about">Explore the Academy</a>
+            <a class="btn btn-outline" href="#registration">Registration Form</a>
+          </div>
         </div>
 
+        <div class="hero-founder reveal">
+          <div class="portrait-frame">
+            <img src="images/founder.jpg" alt="Founder photograph">
+          </div>
+          <div class="portrait-caption"></div>
+        </div>
       </div>
     </section>
 
@@ -252,7 +254,7 @@
             <p>Chess encourages concentration, planning, logical thinking and thoughtful decision-making.</p>
           </article>
           <article class="feature-card reveal">
-            <div class="feature-icon">♕</div>
+            <div class="feature-icon">♟</div>
             <h3>Learn Step by Step</h3>
             <p>Build a strong foundation through simple explanations, practical positions and regular practice.</p>
           </article>
